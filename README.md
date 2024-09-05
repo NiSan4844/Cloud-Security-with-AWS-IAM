@@ -20,6 +20,8 @@ This project demonstrates how to securely manage access to AWS resources using *
 
 The project’s key policy focuses on managing EC2 instances tagged with `Env = development` and restricting access to instances tagged with `Env = production`.
 
+![S1](https://github.com/user-attachments/assets/3093d68c-0e12-4131-9298-7c44ed228ffa)
+
 ### JSON Policy
 ```json
 {
@@ -55,8 +57,8 @@ The project’s key policy focuses on managing EC2 instances tagged with `Env = 
 ## Policy Breakdown
 - Effect: Determines whether the action is allowed or denied.
 - Action: Specifies which actions (e.g., StartInstances, StopInstances, DescribeInstances) are controlled.
-- **Resource:** Defines which EC2 instances the policy applies to.
-- **Condition:** Ensures that the actions are only applied to instances tagged with `Env = development`.
+- Resource: Defines which EC2 instances the policy applies to.
+- Condition: Ensures that the actions are only applied to instances tagged with `Env = development`.
 
 ## Tags
 
@@ -71,11 +73,26 @@ These tags help control permissions based on the environment (e.g., allowing act
 An **AWS Account Alias** was created to replace the default AWS numeric ID, making the sign-in URL more user-friendly:  
 `https://alias-sanil.signin.aws.amazon.com/console`
 
+![S3](https://github.com/user-attachments/assets/f399cab0-8aa6-4535-be59-fe94d78fbf4c)
+
+
+Console sign-in details is,
+
+![S4](https://github.com/user-attachments/assets/285e1dc1-ebdb-41f7-9a4f-6513d318d4fc)
+
+
+
 ## Testing IAM Policies
 
 After creating the policy, I tested it by:
 1. **Stopping the production instance:** As expected, I received an `Access Denied` error, confirming the policy was correctly applied.
+
+    ![S5](https://github.com/user-attachments/assets/3789e762-3376-45ae-8974-c77e340d2ec7)
+
 2. **Stopping the development instance:** This action was successful, indicating that the permissions were set correctly.
+
+    ![S6](https://github.com/user-attachments/assets/e9bd7344-8177-4ab6-a787-2d303f85f9ed)
+
 
 ## What I Learned
 
